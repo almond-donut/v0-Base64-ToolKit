@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 45 93% 47%; /* Yellow primary */
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 45 100% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 45 100% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 45 100% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 45 93% 47%; /* Yellow ring */
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 45 93% 58%; /* Brighter yellow for dark mode */
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 45 30% 15%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 45 30% 15%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 45 30% 15%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 45 30% 15%;
+    --input: 45 30% 15%;
+    --ring: 45 93% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Smooth transitions for theme switching */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--foreground));
+}
+
+/* Keyboard shortcut styling */
+kbd {
+  @apply inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-medium bg-muted border border-border rounded;
+}
+
+/* Yellow accent styles */
+.yellow-accent {
+  @apply bg-yellow-500 hover:bg-yellow-600 text-black;
+}
+
+.yellow-border {
+  @apply border-yellow-300 hover:bg-yellow-100 dark:hover:bg-yellow-900/20;
+}
